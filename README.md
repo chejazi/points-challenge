@@ -1,1 +1,3 @@
-https://github.com/chejazi/points/blob/master/challenge.txt
+# The points challenge
+
+See https://raw.githubusercontent.com/chejazi/points-challenge/master/challenge.txt
