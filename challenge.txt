@@ -4,7 +4,7 @@ Consider a points-based game with the following rules:
 
 - Players spend money within bucketed intervals of time (e.g. 1 interval = 1 day from 00:00 to 23:59)
 - Money spent in one interval is split up evenly and spent over N intervals.
-- A player is active within an interval if they have money spent during it. 
+- A player is active within an interval if they have money spent during it (including money spread)
 - Every interval, 1 point is split among active players, proportional to how much each spent in that interval.
 - If no players are active within an interval, no point is distributed.
 - If a player is inactive for one or more intervals, their points reset to zero. 
