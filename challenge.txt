@@ -11,7 +11,7 @@ Consider a points-based game with the following rules:
 - N is fixed for all players of the game. 
 
 ## The challenge
-Given the current interval, we should be able to compute the number of active points during each of the previous (completed) N intervals. This algorithm can not have a storage overhead exceeding O(C*N), where N is the number of intervals a single spend is spread across. C is a constant factor.
+Given the current interval, we should be able to compute the number of active points for each of the previous (completed) N intervals. This algorithm can not have a storage overhead exceeding O(C*N), where N is the number of intervals a single spend is spread across. C is a constant factor.
 
 ## Examples
 
