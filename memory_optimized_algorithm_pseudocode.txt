@@ -1,0 +1,107 @@
+The solution to this issue is a semi-stateless blockchain looking implementation.
+I can only store N intervals, and I have to be able to remember the previous N
+intervals for the desired out put.  As a variable in the current interval
+I can save as a variable what the state should look life for the next variable.
+This way, I do not have to worry about what is in the future until the next interval
+arrives.
+
+I can then compare number of people I expect to see, and any difference would
+mean that I have a new player and I need to run an add player function.
+Any difference in money total for the interval without any change in the number
+of players present would mean that someone has reupped.  I can then make new
+calculations of total points for today as well as calculating the
+new state that I should expect to see in the next interval.
+
+When the index of the interval is zero it is discarded.
+
+
+//The algorithm works by comparing the state of an interval and the state expected in the  interval. A deviation from what is expected invokes the update interval function to update the current interval.  Only n intervals are remembered from the past the current interval.//
+
+//Class creating an instance of a player//
+Class_Player
+string  name;
+integer index;
+float   total_payment;
+float   interval_payment;
+float   interval_multiplier;
+float   previous_points;
+float   interval_points;
+float   total_points;
+
+//This class defines the variables to be held for each instance of an interval//
+
+Class_interval
+Int   index;
+Int   expected_players;
+Float expected_inputs_money;
+Int   number_players;
+float total_inputs_money_today
+float total_money;
+
+
+//sets a variable for the constant which equals the number of intervals over which the total spent by a player is divided//
+
+int index = n;
+
+init interval_index = 0;
+
+Ctrrent_time = time
+
+//initialize a new instance of interval until the lowest interval index equals zero, where index is equal to n//
+
+While interval_index != 0
+      (
+       If time = 00:00
+                 Id_new= Id + 1;
+                 Init interval(id_new) ;
+                 establish_interval(interval_index = id_new);
+
+        );
+
+
+ //This function takes all players present and calculates what the interval state it should expect next knowing total $$ spent over number  of intervals//
+
+ function establish_interval() (
+    interval_index = n;
+    player_point_multipier = (player_interval_payment / inputs_money);
+    player_interval_points = (1 * (player_point_mulitiplier));
+    player_total_points = player_previous_points + player_interval_points;
+
+   );
+
+ //compare number of players expected to see if a new player has joined.  New player invokes update interval function//
+
+ function compare_players(expected_players, actual_players)
+ (
+   if (number_of_players_today != number_players_expected;
+
+      init player(name, total_dollars_played);
+      update interval();
+
+ else
+
+    continue;
+ );
+
+//compare the total of interval payments to total of interval payments expected.  A difference invokes function to update interval//
+
+function compare_money (total_inputs_money, expected inputs money)
+
+ (
+
+      if (total_inputs_money_today != expected_inputs_money_today) && (number_players_today = number_players_expected)
+
+      (
+
+            player_who_added = compare_player_inputs()
+            update_interval();
+
+      else
+
+            continue;
+ );
+
+//decrement the index of all intervals, if index reaches zero the interval is
+overwritten with the data of the now interval_index = 1//
+
+function shift_intervals ()
