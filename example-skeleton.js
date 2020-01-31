@@ -2,7 +2,7 @@
 function Game(period) {
     let PERIOD = period; // Number of intervals a payment is split across
     let intervals = {}; // Interval data
-    let players = {}; // Member data
+    let players = {}; // Player data
     let otherData = {}; // Whatever you want!
     let currentInterval = 1;
 
