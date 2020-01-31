@@ -1,9 +1,9 @@
 
 function Game(period) {
-    let PERIOD = period; // Number of intervals a payment is split across
-    let intervals = {}; // Interval data
-    let players = {}; // Player data
-    let otherData = {}; // Whatever you want!
+    const PERIOD = period; // Number of intervals a payment is split across
+    const intervals = {}; // Interval data
+    const players = {}; // Player data
+    const otherData = {}; // Whatever you want!
     let currentInterval = 1;
 
     const completeInterval = () => {
