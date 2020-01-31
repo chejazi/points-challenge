@@ -41,7 +41,6 @@ function Game(period) {
 
 // Simulation using the example from the challenge document:
 const game = Game(4);
-game.reset();
 game.play('alice', 1);
 game.completeInterval(); // End interval 1, start 2
 game.play('bob', 2);
