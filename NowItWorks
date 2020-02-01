@@ -1,0 +1,97 @@
+//I've found and fixed a bug. Now the code is fine! I've added many players and tested, all works properly.
+
+using System;
+using System.Collections.Generic;
+
+namespace GitCoinGame2
+{
+    public class Player
+    {
+        public string Name { get; set; }
+        public List<int> IntervalLasts { get; set; }
+        public List<double> Money { get; set; }
+        public double Points { get; set; }
+    }
+
+    class Program
+    {
+        public static int CompleteInterval(int currentInterval, Player[] players, List<double> totalResult)
+        {
+            for (int i = 0; i < players.Length; i++)
+            {
+                for (int j = 0; j < players[j].Money.Count; j++)
+                    if ((players[i].IntervalLasts.Count != 0) && (players[i].IntervalLasts[j] == currentInterval))
+                    {
+                        players[i].IntervalLasts.RemoveAt(j);
+                        players[i].Money.RemoveAt(j);
+                    }
+                    else if (players[i].IntervalLasts.Count == 0)
+                        players[i].Points = 0;
+            }
+            GetCurrentInterval(currentInterval, players);
+            double moneyTotal = 0;
+            for (int i = 0; i < players.Length; i++)
+            {
+                for (int j = 0; j < players[i].Money.Count; j++)
+                    if ((players[i].IntervalLasts.Count != 0) && (players[i].IntervalLasts[j] != currentInterval))
+                        moneyTotal += players[i].Money[j];
+
+            }
+            double pointsTotal = 0;
+            for (int i = 0; i < players.Length; i++)
+            {
+                double playersMoney = 0;
+                for (int j = 0; j < players[i].Money.Count; j++)
+                {
+                    playersMoney += players[i].Money[j];
+                    players[i].Points += (players[i].Money[j] / moneyTotal);
+                }
+                if (playersMoney == 0)
+                    players[i].Points = 0;
+                pointsTotal += players[i].Points;
+            }
+            totalResult.Add(pointsTotal);
+            return currentInterval + 1;
+        }
+        public static void GetCurrentInterval(int currentInterval, Player[] players)
+        {
+            for (int i = 0; i < players.Length; i++)
+                Console.WriteLine(currentInterval + " " + players[i].Name + " " + Math.Round((players[i].Points), 2));
+        }
+
+        public static void Play(Player player, int currentInterval, int period, double money)
+        {
+            player.Money.Add(money);
+            player.IntervalLasts.Add(currentInterval + period);
+        }
+        public static void GetIntervalPoints(int interval, Player[] players, List<double> totalResult)
+        {
+            Console.WriteLine("Points "+totalResult[interval]);
+        }
+        static void Main(string[] args)
+        {
+            List<double> totalResult = new List<double>();
+            int period = 4;
+            int currentInterval = 0;
+            Player[] players = new Player[2];
+            players[0] = new Player { Name = "Ali", IntervalLasts = new List<int>(), Money = new List<double>() };
+            players[1] = new Player { Name = "Bob", IntervalLasts = new List<int>(), Money = new List<double>() };
+
+            Play(players[0], currentInterval, period, 1);
+            currentInterval = CompleteInterval(currentInterval, players, totalResult);
+            Play(players[1], currentInterval, period, 2);
+            currentInterval = CompleteInterval(currentInterval, players, totalResult);
+            currentInterval = CompleteInterval(currentInterval, players, totalResult);
+            Play(players[0], currentInterval, period, 1);
+            currentInterval = CompleteInterval(currentInterval, players, totalResult);
+            currentInterval = CompleteInterval(currentInterval, players, totalResult);
+            currentInterval = CompleteInterval(currentInterval, players, totalResult);
+            currentInterval = CompleteInterval(currentInterval, players, totalResult);
+            currentInterval = CompleteInterval(currentInterval, players, totalResult);
+            currentInterval = CompleteInterval(currentInterval, players, totalResult);
+            for (int i = 0; i < 8; i++)
+                GetIntervalPoints(i, players, totalResult);
+
+        }
+    }
+}
