@@ -1,0 +1,207 @@
+/*This algorithm answers the problem by using the delta state of the current interval struct and previous (number of players and interval
+amount total) to either continue.execution of the program or call an update function to update the current interval from an additional
+player or a player reupping while in the middle of a period. All blocks of data for each interval and player are the same in size,
+and there are only n instances of the interval struct from current to past, where n is the period constant.  Memory is optimized in 
+the form of a while loop that will not allow the contruction of any structs greater than the period constant.  The algorithm also
+compares as little information as necessary to deduce the current state with just two data fields of the struct.  
+If I had more time, I would have considered impmlementing a hash map or LZW compression.*/
+
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+/*declare current interval*/
+int currentInterval = 1;
+
+
+/*define struct for an interval*/
+struct interval
+{
+	
+	int index;
+	string name[index];
+	string amount[index];
+	int playerStartInterval;
+	int playerEndInterval;
+	float playerIntervalPayment[index];
+	float playerIntervalPoints;
+	float playerTotalPoints;
+	float playerPreviousPoints;
+	float intervalTotalPoints;
+	int playersGoingtoNextInterval;
+	
+};
+
+
+/*constructs the current struct from new data regarding all the players, total points, and points earned just in this interval*/
+void makeInterval()
+{
+	indexMake(numPlayers);
+	int id(getCurrentInterval);
+	Interval _ id
+	{
+	
+		while(id <= getPlayers(numPlayers))
+		{
+	
+		index=indexMake;
+		name[id] = addPlayers(getName);
+		amount[id] = addPlayers(totalAmountSpent);
+		playerStartInterval[id] = getCurrentInterval();
+		playerEndInterval[id] = getCurrentInterval() + period;	
+		playerIntervalPayment[id] = amount[id] / period;
+		playerIntervalPoints[id] = playerIntervalPayment[id] / intervalTotalPayments;
+		int placeholder;  
+		
+		if (playerStartInterval == getCurrentInterval())
+		{
+       		 playerPreviousPoints[id] = 0;
+       		 playerPreviousPoints[id] + playerIntervalPoints[id] = placeholder;
+       	
+       	else
+			
+			playerPreviousPoints[id] + playerIntervalPoints[id] = placeholder;        	
+      	 }
+       	
+		    PlayerIntervalTotalPoints = placeholder; 
+       		id++;
+       		int count;
+       		
+       	if (getCurrentInterval < playerEndInterval)
+       	{
+       		count++	
+	    }	       	
+		   playersGoingtoNextInterval = count;
+		   
+
+       		
+       	int totalIndex;
+       	int totalIndex = index;
+       	
+		while(index <= getPlayers(numPlayers))
+       	{
+       		intervalTotalPayment = playerIntervalPayment[index] + playerIntervalPayment[index++];
+       		index = index++;
+       			
+		};
+	 	};
+	} 
+	 
+	 
+/*compares the amount of players in the interval to see if another player has arrived that would require the current struct to be updated*/	 
+bool intervalComparePlayers()
+{
+	int prevID;
+	int ID = getCurrentInterval();
+	prevID = getCurrentInterval() -1;
+	
+	if (Interval _ prevID.playersGoingtoNextInterval = interval _ ID.index)
+	{
+	 	return true;
+	 }
+	else
+	{
+		return false;	 	
+	};
+}
+	
+	 
+/*compares the intervalAmount state from current and previous struct to identify any change in amount that 
+might require the current struct to be updated due to player re-upping in a current period*/	
+bool intervalCompareAmount()
+{
+	int prevID;
+	int ID = getCurrentInterval();
+	prevID = getCurrentInterval() - 1;
+	if (interval _ prevID.intervalTotalPayment == interval _ id.intervalTotalPayment)
+	{
+		return true;
+	}
+	else
+	{
+		return false;	
+	};
+		
+}
+
+
+/*Add players to interval*/
+void addPlayers{
+	
+	numPlayersAdded();
+	int currentIndex =1;
+	
+	while (currentIndex <= numPlayersAdded )
+	{
+		cin >> getName;
+		int totalAmountSpent;
+		cin >> amount
+		
+		int newIndex;
+		newIndex=currentIndex++;
+		
+		return(getName, amount);	
+		
+	};
+}
+
+//update current interval upon finding a state difference between amount of players or amount contributed during the interval.//
+void updateCurrentInterval()
+{
+	bool players = IntervalComparePlayers();
+	bool amount = intervalCompareAmount();
+	
+	if (players = false);
+	{
+		intervalGetPlayer();
+	}
+	else if (amount = false);
+	{
+		intervalGetNewAmount();
+	}
+	else
+	
+			break;
+}
+
+//interval incrementation//
+int completeInterval()
+{
+	currentInterval++;
+}
+
+int getCurrentInterval()
+{
+	return currentInterval;
+}
+
+/*Main program that runs in a while loop for number of periods specified*/
+int main ()
+{
+	//user enters constant number for period using the getPeriod function//	
+	int getPeriod();
+	
+	while(getCurrentInterval <= period)
+	{
+		makeInterval();
+		completeInterval();
+		makeInterval();
+
+		if(intervalComparePlayers() == true)
+		{
+		return 0;
+		}
+		else
+	   {
+		updateCurrentInterval();
+		};
+	};
+
+	completeInterval();
+	
+	
+}
+
+
